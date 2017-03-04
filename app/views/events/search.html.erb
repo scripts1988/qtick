@@ -1,0 +1,14 @@
+<div class='events-header' style='background-image: url(<%= header_background_image_url %>)'>
+  <div class="container">
+    <h2> Search </h2>
+  </div>
+</div>
+<div class="container-fluid events-list">
+  <% if @events_matches %>
+    <% @events_matches.each do |e| %>
+      <%= render partial: 'card', locals: {event: e} %>
+    <% end %>
+  <% else %>
+  <h2>Event not found</h2>
+  <% end %>
+</div>

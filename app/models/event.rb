@@ -9,4 +9,8 @@ class Event < ActiveRecord::Base
   def self.upcoming
     where("ends_at >= ?", Time.zone.now).order(:starts_at)
   end
+
+  def self.search(term)
+    where('name LIKE ?', "%#{term}%")
+  end
 end

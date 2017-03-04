@@ -24,7 +24,7 @@ The person with best test coverage will win a small present from the instructor 
         * Implement `/upcoming` route test to go to 'events#index'
         * Implement `Event.upcoming` class method (with a test)
         * Implement `EventsController#index` action test
-* [ ] Users can search for events from the homepage.
+* [x] Users can search for events from the homepage.
 * [ ] Users can click on an event to see details about the event.
 * [ ] Users can click on "Book Now" to go to a page to purchase tickets.
 

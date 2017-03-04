@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+  describe ".search" do
+    it "return [] when there is no events name matched" do
+      expect(Event.search('Hello')).to eq []
+    end
+
+    it "return [s] when s event name contain search term" do
+      s = Event.create!(name: "s", starts_at: 2.days.from_now, ends_at: 3.day.from_now, extended_html_description: "Hello event",
+                        venue: Venue.new, category: Category.new)
+      expect(Event.search('s')).to eq [s]
+    end
+
+  end
+
   describe ".upcoming" do
     it "return [] when there are no events" do
       expect(Event.upcoming).to eq []
