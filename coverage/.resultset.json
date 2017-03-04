@@ -30,8 +30,14 @@
         null,
         null,
         1,
-        2,
+        4,
         null,
+        null
+      ],
+      "/Users/quan/projects/RoR/qtick/app/models/region.rb": [
+        1,
+        1,
+        1,
         null
       ],
       "/Users/quan/projects/RoR/qtick/app/models/venue.rb": [
@@ -47,6 +53,6 @@
         null
       ]
     },
-    "timestamp": 1488627668
+    "timestamp": 1488633194
   }
 }
