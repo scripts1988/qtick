@@ -1,8 +1,8 @@
-# Homework 3 - *Name of App*
+# Homework 3 - *CoderTicket*
 
-**Name of your app** is a Ruby on Rails application that allows users to create and buy tickets to cool events.
+**qTicket** is a Ruby on Rails application that allows users to create and buy tickets to cool events.
 
-- Submitted by: **Your Name Here**
+- Submitted by: **Nguyen Thanh Quan**
 - Time spent: **X** hours
 - URL: **Insert your Heroku URL here**
 - SimpleCov Test Coverage: [coverage/index.html](coverage/index.html)
@@ -18,7 +18,7 @@ The person with best test coverage will win a small present from the instructor 
 
 #### Events
 
-* [ ] Users can see a list of upcoming events. Past events should not be shown.
+* [x] Users can see a list of upcoming events. Past events should not be shown.
     * **HINT**: Good candidate for a test. You can write test first --> fail --> fast similar to demo
     * Suggestions:
         * Implement `/upcoming` route test to go to 'events#index'
