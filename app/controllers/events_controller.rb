@@ -18,11 +18,22 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def edit 
+    @event = Event.find_by_id(:id)
+  end
+
+	def publish
+		event = Event.find_by_id(params[:event_id])
+		event.publish_status = true
+		event.save!
+		redirect_to root_path
+	end
+
   def create
     @event = Event.new(event_params)
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event created success' }
+        format.html { render :edit, :id => @event.id, notice: 'Event created success' }
         format.json { render :edit, status: :created, location: @event }
       else
         format.html { render :new }

@@ -6,12 +6,14 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :tickets
+
     collection do
       get 'search/:q', :action => 'search', :as => 'search'
     end
+
+    put 'publish' => 'events#publish'
   end
 
-  put 'edit_event' => 'events#edit'
 
   resources :sessions, only: [:new, :create]
   delete  'log_out' => 'sessions#destroy'

@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   validates_uniqueness_of :name, uniqueness: {scope: [:venue, :starts_at]}
 
   def self.upcoming
-    where("ends_at >= ?", Time.zone.now).order(:starts_at)
+    where("ends_at >= ? and publish_status = true", Time.zone.now).order(:starts_at)
   end
 
   def self.search(term)

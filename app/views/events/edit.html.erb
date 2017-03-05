@@ -1,10 +1,32 @@
 <div class="container">
-  <br>
-  <br>
-  <br>
-  <h1>New Events</h1>
-  <hr>
-  <h1><%= @event.name %></h1>
+	<br>
+	<br>
+	<br>
+	<h1>Publish Events</h1>
+	<hr>
 
+	<div class="card">
+		<div class="card-header">	
+			<%= @event.name %>
+		</div>
+
+		<div class="card-block">
+			<p class="card-text">
+				<%= @event.extended_html_description %>
+			</p>
+
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><strong>Type: </strong><%= @event.category.name %> </li>
+				<li class="list-group-item"><strong>At: </strong><%= @event.venue.name %> </li>
+				<li class="list-group-item"><strong>From: </strong><%= @event.starts_at.strftime(" %A, %d %b %Y %l:%M %p")%></li>
+				<li class="list-group-item"><strong>To: </strong><%= @event.ends_at.strftime("%A, %d %b %Y %l:%M %p")%></li>
+			</ul>
+			<br>
+
+      <%= form_tag event_publish_path(@event.id), method: :put, remote: true do %>
+        <%= submit_tag("Publish") %>
+      <% end %>
+		</div>
+	</div>
 </div>
 
