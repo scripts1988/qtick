@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get 'search/:q', :action => 'search', :as => 'search'
     end
   end
+
+  resources :sessions, only: [:new, :create]
+  delete  'log_out' => 'sessions#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
