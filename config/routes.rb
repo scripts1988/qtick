@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  put 'edit_event' => 'events#edit'
+
   resources :sessions, only: [:new, :create]
   delete  'log_out' => 'sessions#destroy'
 
