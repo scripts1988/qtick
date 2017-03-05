@@ -1,0 +1,24 @@
+<div class="container">
+	<br>
+	<br>
+	<br>
+	<h1>Venues</h1>
+	<hr>
+
+	<div class="card">
+		<div class="card-header">	
+			<%= @venue.name %>
+		</div>
+
+		<div class="card-block">
+			<p class="card-text">
+				<%= @venue.full_address %>
+			</p>
+
+			<ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong><%= @venue.region.name %></strong></li>
+			</ul>
+		</div>
+	</div>
+</div>
+

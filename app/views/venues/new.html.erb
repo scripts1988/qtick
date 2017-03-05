@@ -1,0 +1,34 @@
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <h1>New Venues</h1>
+  <hr>
+  <%= form_for @venue do |f| %>
+    <% if @venue.errors.size > 0 %>
+      <div class="alert alert-danger">
+        <%= @venue.errors.full_messages.to_sentence %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control'%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :full_address %>
+      <%= f.text_area :full_address, class: 'form-control'%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :region_id %>
+      <%= f.select :region_id, Region.all.map{|ele| [ele.name, ele.id]}, {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Create", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+

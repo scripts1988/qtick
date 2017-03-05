@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :venues, only: [:new, :create, :show, :edit, :index]
   resources :users
   root 'events#index'
 
