@@ -24,7 +24,7 @@
 			<br>
 
       <%= form_tag event_publish_path(@event.id), method: :put, remote: true do %>
-        <%= submit_tag("Publish") %>
+        <%= submit_tag("Publish", class: "btn btn-success") %>
       <% end %>
 		</div>
 	</div>

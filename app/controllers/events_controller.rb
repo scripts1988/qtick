@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   end
 
   def edit 
-    @event = Event.find_by_id(:id)
+    @event = Event.find_by_id(params[:id])
   end
 
 	def publish
