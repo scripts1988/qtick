@@ -1,0 +1,12 @@
+<div class='events-header' style='background-image: url(<%= header_background_image_url %>)'>
+  <div class="container">
+    <h2> Your own events </h2>
+  </div>
+</div>
+<div class="container-fluid events-list">
+  <% if @events %>
+    <% @events.each do |e| %>
+      <%= render partial: 'card', locals: {event: e} %>
+    <% end %>
+  <% end %>
+</div>

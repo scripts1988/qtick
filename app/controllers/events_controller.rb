@@ -31,6 +31,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     respond_to do |format|
       if @event.save
         format.html { render :edit, :id => @event.id, notice: 'Event created success' }
@@ -40,6 +41,10 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def mine
+    @events = Event.where("user_id = ?", current_user.id)
   end
 
   private
