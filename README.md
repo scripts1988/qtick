@@ -11,7 +11,7 @@
 
 The following **required** functionality is complete:
 
-* [ ] Implement required user stories
+* [x] Implement required user stories
 * [ ] 10 model tests, 2 route tests, 2 controller tests, 2 view tests.
 
 The person with best test coverage will win a small present from the instructor :)
