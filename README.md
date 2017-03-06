@@ -53,7 +53,7 @@ The person with best test coverage will win a small present from the instructor 
 * [x] User can see a list of events he or she has created.
     * Suggestions
         * You can use `/events/mine` [collection routes](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions)
-* [ ] Users can edit their event after creation. But only the user who created the event can edit the event.
+* [x] Users can edit their event after creation. But only the user who created the event can edit the event.
     * **HINT**: use a `before_action :check_event_changing_permission` to redirect users to event page with a flash error if applicable.
 
 ### Optional Stories

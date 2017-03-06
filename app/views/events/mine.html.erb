@@ -6,7 +6,7 @@
 <div class="container-fluid events-list">
   <% if @events %>
     <% @events.each do |e| %>
-      <%= render partial: 'card', locals: {event: e} %>
+      <%= render partial: 'change', locals: {event: e} %>
     <% end %>
   <% end %>
 </div>

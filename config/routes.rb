@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'search/:q', :action => 'search', :as => 'search'
     end
 
+    get 'modify' => 'events#modify'
     put 'publish' => 'events#publish'
   end
 

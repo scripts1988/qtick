@@ -23,9 +23,17 @@
 			</ul>
 			<br>
 
-      <%= form_tag event_publish_path(@event.id), method: :put, remote: true do %>
-        <%= submit_tag("Publish", class: "btn btn-success") %>
-      <% end %>
+      <ul class="nav nav-pills card-footer-pills">
+        <li class="nav-item">
+          <%= form_tag event_publish_path(@event.id), method: :put, remote: true do %>
+            <%= submit_tag("Publish", class: "btn btn-success") %>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Modify", event_modify_path(event_id: @event.id), class: "btn btn-success" %>
+        </li>
+      </ul>
 		</div>
 	</div>
 </div>
