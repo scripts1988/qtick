@@ -3,47 +3,6 @@
   <br>
   <br>
   <h1>New Events</h1>
-  <hr>
-  <%= form_for @event do |f| %>
-    <% if @event.errors.size > 0 %>
-      <div class="alert alert-danger">
-        <%= @event.errors.full_messages.to_sentence %>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control'%>
-    </div>
-
-    <div class="form-group">
-      <%= f.label 'Description' %>
-      <%= f.text_area :extended_html_description, class: 'form-control'%>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :venue_id %>
-      <%= f.select :venue_id, Venue.all.map{|ele| [ele.name, ele.id]}, {}, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :category_id %>
-      <%= f.select :category_id, Category.all.map{|ele| [ele.name, ele.id]}, {}, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label 'Begin (mm/dd/yyyy, HH:MM)' %>
-      <%= f.datetime_field :starts_at, class: 'form-control'%>
-    </div>
-
-    <div class="form-group">
-      <%= f.label 'End (mm/dd/yyyy, HH:MM)' %>
-      <%= f.datetime_field :ends_at, class: 'form-control'%>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit "Create", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+  <%= render 'form', event: @event %>
 </div>
 
