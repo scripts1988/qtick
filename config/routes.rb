@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :tickets
+    get 'purchase_ticket' => 'tickets#purchase'
 
     collection do
       get 'search/:q', :action => 'search', :as => 'search'

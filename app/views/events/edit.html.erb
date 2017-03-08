@@ -33,6 +33,10 @@
         <li class="nav-item">
           <%= link_to "Modify", event_modify_path(event_id: @event.id), class: "btn btn-success" %>
         </li>
+
+        <li class="nav-item">
+          <%= link_to "Tickets", new_event_ticket_path(event_id: @event.id), class: "btn btn-success" %>
+        </li>
       </ul>
 		</div>
 	</div>
