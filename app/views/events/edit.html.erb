@@ -20,16 +20,24 @@
 				<li class="list-group-item"><strong>At: </strong><%= @event.venue.name %> </li>
 				<li class="list-group-item"><strong>From: </strong><%= @event.starts_at.strftime(" %A, %d %b %Y %l:%M %p")%></li>
 				<li class="list-group-item"><strong>To: </strong><%= @event.ends_at.strftime("%A, %d %b %Y %l:%M %p")%></li>
+
+				<% if @ticket_types %>
+					<% @ticket_types.each do |tick| %>
+          <li class="list-group-item">Ticket: <%= tick.name %> | Price <%= tick.price %> | Quantity <%= tick.max_quantity %></li>
+					<% end %>
+				<% end %>
+
 			</ul>
 			<br>
 
       <ul class="nav nav-pills card-footer-pills">
+        <% if @ticket_types.empty? == false %>
         <li class="nav-item">
           <%= form_tag event_publish_path(@event.id), method: :put, remote: true do %>
             <%= submit_tag("Publish", class: "btn btn-success") %>
           <% end %>
         </li>
-
+        <% end %>
         <li class="nav-item">
           <%= link_to "Modify", event_modify_path(event_id: @event.id), class: "btn btn-success" %>
         </li>

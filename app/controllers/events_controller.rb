@@ -20,12 +20,15 @@ class EventsController < ApplicationController
 
 	def edit 
 		@event = Event.find_by_id(params[:id])
+    @ticket_types = TicketType.where('event_id = ?', @event.id)
 	end
 
 	def publish
 		event = Event.find_by_id(params[:event_id])
-		event.publish_status = true
-		event.save!
+    ticket_types = TicketType.where('event_id = ?', event.id)
+    if ticket_types.empty? == false 
+		  event.publish_status = true
+		  event.save!
 		redirect_to root_path
 	end
 
