@@ -4,7 +4,7 @@
 
 - Submitted by: **Nguyen Thanh Quan**
 - Time spent: **40** hours
-- URL: ****
+- URL: https://qtick.herokuapp.com 
 - SimpleCov Test Coverage: [coverage/index.html](coverage/index.html)
 
 ## User Stories
