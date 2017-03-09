@@ -38,6 +38,7 @@ class EventsController < ApplicationController
 		@event.user_id = current_user.id
 		respond_to do |format|
 			if @event.save
+        @ticket_types = TicketType.where('event_id = ?', @event.id)
 				format.html { render :edit, :id => @event.id, notice: 'Event created success' }
 				format.json { render :edit, status: :created, location: @event }
 			else

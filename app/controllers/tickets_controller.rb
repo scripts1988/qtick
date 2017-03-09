@@ -25,9 +25,13 @@ class TicketsController < ApplicationController
   end
 
   def create
-    ticket_from_db = TicketType.find_by_name(tickets_params[:name])
 
-    if ticket_from_db != nil and ticket_from_db.name == tickets_params[:name] and ticket_from_db.event_id == params[:event_id]
+    ticket_from_db = TicketType.find_by(name: tickets_params[:name], event_id: params[:event_id])
+
+    if ticket_from_db != nil
+      flash[:error] = 'This ticket is already created for current event'
+      redirect_to new_event_ticket_path(params[:event_id])
+    else
       @ticket_type = TicketType.new(tickets_params)
       @ticket_type.event_id = params[:event_id]
       @event = Event.find(params[:event_id])
@@ -40,9 +44,6 @@ class TicketsController < ApplicationController
           format.json { render json: @ticket_type.errors, status: :unprocessable_entity }
         end
       end
-    else 
-      flash[:error] = 'This ticket is already created for current event'
-      redirect_to new_event_ticket_path(params[:event_id])
     end
   end
 
