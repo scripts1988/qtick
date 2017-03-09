@@ -29,6 +29,7 @@ class EventsController < ApplicationController
     if ticket_types.empty? == false 
 		  event.publish_status = true
 		  event.save!
+    end
 		redirect_to root_path
 	end
 
