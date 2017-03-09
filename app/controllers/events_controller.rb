@@ -49,7 +49,12 @@ class EventsController < ApplicationController
 	end
 
 	def modify
-		@event = Event.find_by_id(params[:event_id])
+    if current_user == nil
+      flash[:error] = 'Permission denined'
+      redirect_to root_path
+    else
+		  @event = Event.find_by_id(params[:event_id])
+    end
 	end
 
 	def update
