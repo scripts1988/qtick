@@ -17,22 +17,24 @@
       <div class="time-details"> 
         <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %> 
       </div>
-
-
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-11 col-md-offset-1">  
       <table class="table">
         <th> Ticket Type </th>
         <th> Unit Price </th>
         <th> Quantity </th>
+        <th> Available Tickets </th>
+
       
         <% @event.ticket_types.each do |type| %>
         <tr>
           <td> <%= type.name %> </td>
           <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
           <td> <%= select_tag('quantity', options_for_select(0..10)) %></td> 
+          <td> <%= type.max_quantity %></td> 
         </tr>
         <% end %> 
       </table>
@@ -40,7 +42,9 @@
   </div>
   <div class="row">
     <div class="col-md-2 col-md-offset-5">
-      <button class="btn btn-success btn-lg btn-block"> Buy </button>
+      <%= form_tag event_buy_ticket_path(@event.ticket_types), method: :put do %>
+        <%= submit_tag("Buy", class: "btn btn-success") %>
+      <% end %>
     </div>
   <div>
 </div>  

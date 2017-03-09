@@ -9,6 +9,10 @@ class TicketsController < ApplicationController
     @ticket_type.event_id = params[:event_id]
   end
 
+  def buy
+    redirect_to event_purchase_ticket_path(params[:event_id]) 
+  end
+
   def create
     ticket_from_db = TicketType.find_by_name(tickets_params[:name])
 
