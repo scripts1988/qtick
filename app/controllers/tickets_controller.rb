@@ -10,10 +10,6 @@ class TicketsController < ApplicationController
   end
 
   def buy
-    puts params[:ticket_id]
-    puts params[:quantity]
-    puts params[:event_id]
-
     # Decrease available ticket
     ticket = TicketType.find_by_id(params[:ticket_id])
     if ticket != nil
