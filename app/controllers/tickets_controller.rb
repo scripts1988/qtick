@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   def purchase 
-    @event = Event.find(params[:event_id])
+    @event_item = Event.find(params[:event_id])
   end
 
   def new
@@ -18,6 +18,9 @@ class TicketsController < ApplicationController
       else
         ticket.max_quantity = ticket.max_quantity - params[:quantity].to_i
         ticket.save!
+        if params[:quantity].to_i != 0
+          flash[:success] = 'Purchased ticket ' + ticket.name
+        end
       end
     end
 

@@ -3,7 +3,7 @@
 **qTicket** is a Ruby on Rails application that allows users to create and buy tickets to cool events.
 
 - Submitted by: **Nguyen Thanh Quan**
-- Time spent: **36** hours
+- Time spent: **40** hours
 - URL: ****
 - SimpleCov Test Coverage: [coverage/index.html](coverage/index.html)
 

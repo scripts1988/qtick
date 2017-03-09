@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20170305174156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "carts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "ticket_types_id"
-    t.integer  "quantity"
-    t.integer  "total_price"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["ticket_types_id"], name: "index_carts_on_ticket_types_id", using: :btree
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -81,7 +71,6 @@ ActiveRecord::Schema.define(version: 20170305174156) do
     t.index ["region_id"], name: "index_venues_on_region_id", using: :btree
   end
 
-  add_foreign_key "carts", "ticket_types", column: "ticket_types_id"
   add_foreign_key "events", "categories"
   add_foreign_key "events", "users"
   add_foreign_key "events", "venues"
