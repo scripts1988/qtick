@@ -10,6 +10,21 @@ class TicketsController < ApplicationController
   end
 
   def buy
+    puts params[:ticket_id]
+    puts params[:quantity]
+    puts params[:event_id]
+
+    # Decrease available ticket
+    ticket = TicketType.find_by_id(params[:ticket_id])
+    if ticket != nil
+      if ticket.max_quantity < params[:quantity].to_i
+        flash[:error] = 'Not enough ticket for buying'
+      else
+        ticket.max_quantity = ticket.max_quantity - params[:quantity].to_i
+        ticket.save!
+      end
+    end
+
     redirect_to event_purchase_ticket_path(params[:event_id]) 
   end
 

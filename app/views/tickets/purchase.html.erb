@@ -27,25 +27,27 @@
         <th> Unit Price </th>
         <th> Quantity </th>
         <th> Available Tickets </th>
+        <th> </th>
 
       
         <% @event.ticket_types.each do |type| %>
         <tr>
-          <td> <%= type.name %> </td>
-          <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
-          <td> <%= select_tag('quantity', options_for_select(0..10)) %></td> 
-          <td> <%= type.max_quantity %></td> 
+          <%= form_tag event_buy_ticket_path, {method: :put} do %>
+            <div class='form-inline'>
+              <td> <%= type.name %> </td>
+              <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
+              <td> <%= select_tag :quantity, options_for_select(0..10) %></td> 
+              <td> <%= type.max_quantity %></td> 
+              <%= hidden_field_tag :ticket_id , type.id %>
+              <td>
+                <%= submit_tag 'Buy', class: 'btn btn-success' %>
+              </td> 
+            </div>
+          <% end %> 
         </tr>
         <% end %> 
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2 col-md-offset-5">
-      <%= form_tag event_buy_ticket_path(@event.ticket_types), method: :put do %>
-        <%= submit_tag("Buy", class: "btn btn-success") %>
-      <% end %>
-    </div>
-  <div>
 </div>  
 
